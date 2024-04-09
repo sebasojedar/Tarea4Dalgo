@@ -10,8 +10,8 @@ import sys
 
 def conversor(lista):
     grafo = {}
-    for arista in lista:
-        v1, v2 = arista
+    for arco in lista:
+        v1, v2 = arco
 
         if v1 in grafo:
             grafo[v1].append(v2)
@@ -42,7 +42,6 @@ def texto_a_lista(lista):
             i+=4
 
         else:
-
             i+=1
 
     return grafo
@@ -54,20 +53,20 @@ def fakenews(origen,grafo):
     cola.append(origen)
     visitados = []
     visitados.append(origen)
-    horas = -1 
+    t = -1 
 
     while cola:
-        nivel_tamano = len(cola)
-        for _ in range(nivel_tamano):
+        por_visitar = len(cola)
+        for _ in range(por_visitar):
             nodo_actual = cola.pop(0)
  
             for vecino in grafo[nodo_actual]:
                 if vecino not in visitados:
                     visitados.append(vecino)
                     cola.append(vecino)
-        horas += 1 
+        t += 1 
 
-    return horas     
+    return t     
 
 
 def main():
