@@ -29,22 +29,8 @@ def conversor(lista):
 
 
 def texto_a_lista(lista):
-    i = 0
-    grafo = []
-    texto = ["[","]",",","(",")"]
-
-    while i <= (len(lista)-1):
-
-        if lista[i] not in texto:
-
-            tupla = (lista[i],lista[i+2])
-            grafo.append(tupla)
-            i+=4
-
-        else:
-            i+=1
-
-    return grafo
+    tuple_list = eval(lista)
+    return tuple_list
 
 
 
@@ -77,7 +63,7 @@ def main():
         case_list = list(map(str, sys.stdin.readline().split()))
         for i in range(len(case_list)):
             if i == 0:
-                origen = case_list[i][0]
+                origen = int(case_list[i])
             else:
                 grafo = texto_a_lista(case_list[i])
         
